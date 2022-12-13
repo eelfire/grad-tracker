@@ -6,7 +6,9 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const hello = trpc.example.hello.useQuery({ text: "👋 from IITGN community" });
+  const hello = trpc.example.hello.useQuery({
+    text: "👋 from IITGN community",
+  });
 
   return (
     <>
@@ -21,8 +23,8 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen flex-col items-center justify-center bg-white">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <div className="flex flex-row">
-            <img src="/gradhat.svg" alt="logo" className="p-4 border-r-4"/>
-            <img src="/iitgn-logo.svg" alt="IITGN Logo" className="p-4"/>
+            <img src="/gradhat.svg" alt="logo" className="border-r-4 p-4" />
+            <img src="/iitgn-logo.svg" alt="IITGN Logo" className="p-4" />
           </div>
           <h1 className="text-5xl">
             Welcome to Graduation Requirements Tracker
@@ -60,7 +62,7 @@ const AuthShowcase: React.FC = () => {
         {secretMessage && <span> - {secretMessage}</span>}
       </p>
       <button
-        className=" rounded-md bg-blue-200 px-10 py-3 font-semibold text-blue-500 no-underline transition hover:bg-white/20"
+        className=" rounded-md bg-blue-200 px-10 py-3 font-semibold text-blue-500 no-underline transition hover:bg-blue-300"
         onClick={sessionData ? () => signOut() : () => signIn()}
       >
         {sessionData ? "Sign out" : "Sign in"}
